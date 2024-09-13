@@ -38,7 +38,7 @@
                     </svg>
                 </div>
                 <div style="font-size: 3rem;" class="mt-6 font-bold flex justify-center dark:text-white">
-                    <h1>INTAN PURNAMA SARI - 2217051050</h1>
+                    <h1>INTAN PURNAMA SARI - 2217051050 </h1>
                 </div>
                 <div class="mt-16">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
