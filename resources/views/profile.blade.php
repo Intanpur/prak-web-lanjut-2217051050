@@ -24,7 +24,7 @@
         <div class="row justify-content-center">
             <div class="col-md-6 text-center">
                 <!-- Gambar Profil -->
-                <img src="pp1.jpg" class="rounded-circle mb-3" alt="Profile Picture">
+                <img src="{{ asset('pp1.jpg') }}" class="rounded-circle mb-3" alt="Profile Picture">
 
                 <!-- Card Nama dengan border biru -->
                 <div class="card card-nama mb-2">
