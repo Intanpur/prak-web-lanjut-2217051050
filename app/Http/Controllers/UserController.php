@@ -9,31 +9,42 @@ use App\Http\Requests\UserRequest;
 
 class UserController extends Controller
 {
+    public $userModel;
+    public $kelasModel;
+
+    public function __construct()
+    {
+        $this->userModel = new UserModel();
+        $this->kelasModel = new Kelas();
+    }
+   public function index()
+   {
+    $data = [
+        'title' => 'Create User',
+        'kelas' => $this->userModel->getUser(),
+    ];
+    return view('list_user', $data);
+   }
     public function create(){
-        return view('create_user', [
-            'kelas' => Kelas::all()
-        ]);
+        $kelasModel = new kelas();
+
+        $kelas = $this->$kelasModel->getKelas();
+
+        $data = [
+            'title' => 'Create User',
+            'kelas' => $kelas,
+        ];
+        return view('create_user', $data);
     }
 
-    public function store(Request $request) {
-        // Validasi input
-        $validatedData = $request->validate([
-            'nama' => 'required|string|max:255',
-            'npm' => 'required|string|max:255',
-            'kelas_id' => 'required|exists:kelas,id',
-        ]);
-
-        // Buat data pengguna baru di database
-        $user = UserModel::create($validatedData);
-
-        // Muat relasi kelas
-        $user->load('kelas');
-
-        // Arahkan ke halaman profile dengan data yang diperlukan
-        return view('profile', [
-            'nama' => $user->nama,
-            'npm' => $user->npm,
-            'kelas' => $user->kelas->nama_kelas ?? 'Kelas tidak ditemukan',
-        ]);
+    public function store(Request $request)
+    {
+     $this->userModel->create([
+     'nama' => $request->input('nama'),
+     'npm' => $request->input('npm'),
+     'kelas_id' => $request->input('kelas_id'),
+     ]);
+     return redirect()->to('/user');
     }
+    
 }
