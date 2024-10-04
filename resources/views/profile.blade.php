@@ -1,57 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile Page</title>
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        /* Custom Border Styles */
-        .card-nama {
-            border: 2px solid #ff0000; /* Merah */
+        /* Mengubah background seluruh halaman menjadi biru tua */
+        body {
+            background-color: #00008b; /* Warna biru tua */
         }
-        .card-kelas {
-            border: 2px solid #800080; /* Ungu */
+
+        .profile-container {
+            max-width: 400px;
+            margin: 50px auto;
+            text-align: center;
+            padding: 20px;
+            background-color: #add8e6; /* Warna biru muda */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-        .card-npm {
-            border: 2px solid #007bff; /* Biru */
+
+        .profile-avatar {
+            width: 100px;
+            height: 100px;
+            background-color: #f1f1f1;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            display: inline-block;
+            background-image: url('{{ asset('pp1.jpg') }}');
+            background-size: cover;
+            background-position: center;
+        }
+
+        h2 {
+            color: #6c757d;
+        }
+
+        .card {
+            background-color: #ffffff;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .card-title {
+            font-size: 18px;
+            color: #333;
+        }
+
+        .btn-custom {
+            background-color: #ff6b6b;
+            color: white;
+        }
+
+        .btn-custom:hover {
+            background-color: #ff4757;
         }
     </style>
 </head>
+
 <body>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-6 text-center">
-                <!-- Gambar Profil -->
-                <img src="{{ asset('pp1.jpg') }}" class="rounded-circle mb-3" alt="Profile Picture">
 
-                <!-- Card Nama dengan border biru -->
-                <div class="card card-nama mb-2">
-                    <div class="card-body">
-                        <h5 class="card-title">Nama: {{ $nama }}</h5>
-                    </div>
-                </div>
+    <div class="profile-container">
+        <div class="profile-avatar"></div>
+        <h2>User Profile</h2>
 
-                <!-- Card Kelas dengan border hijau -->
-                <div class="card card-kelas mb-2">
-                    <div class="card-body">
-                        <h5 class="card-title">Kelas: {{ $kelas }}</h5>
-                    </div>
-                </div>
-
-                <!-- Card NPM dengan border kuning -->
-                <div class="card card-npm mb-2">
-                    <div class="card-body">
-                        <h5 class="card-title">NPM: {{ $npm }}</h5>
-                    </div>
-                </div>
-            </div>
+        <!-- Card Nama -->
+        <div class="card">
+            <h5 class="card-title">Nama: {{ $nama }}</h5>
         </div>
+
+        <!-- Card Kelas -->
+        <div class="card">
+            <h5 class="card-title">Kelas: {{ $kelas }}</h5>
+        </div>
+
+        <!-- Card NPM -->
+        <div class="card">
+            <h5 class="card-title">NPM: {{ $npm }}</h5>
+        </div>
+
+        <button class="btn btn-custom">Edit Profile</button>
     </div>
 
-    <!-- Bootstrap JS and Popper.js -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
