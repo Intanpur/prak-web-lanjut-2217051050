@@ -7,7 +7,8 @@
         <!-- Avatar profile yang menggunakan gambar dari public/assets/profile.png -->
         <div class="profile-avatar" style="background-image: url('{{ asset('pp.jpg') }}');"></div>
         <h2>Profile Form</h2>
-        <form action="{{ route('user.store') }}" method="post" novalidate>
+        <!-- <form action="{{ route('user.store') }}" method="post" novalidate> -->
+        <form action="{{ route('user.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
                 <label for="nama" class="form-label">First Name:</label>
@@ -29,11 +30,18 @@
                     @foreach ($kelas as $kelasItem)
                     <option value="{{ $kelasItem->id }}">{{ $kelasItem->nama_kelas }}</option>
                     @endforeach
-            </select>
+            </select><br>
+
             @foreach ($errors->get('kelas_id') as $msg)
                     <p class="error">{{ $msg }}</p> <!-- Menggunakan kelas error -->
              @endforeach
             </div>
+
+            <div class="mb-3">
+                <label for="foto" class="form-label">Foto</label>
+                <input class="form-control" type="file" id="foto" name="foto">
+            </div>
+            
             <button type="submit" class="btn btn-custom">Submit</button>
         </form>
     </div>
