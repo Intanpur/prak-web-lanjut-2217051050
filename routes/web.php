@@ -23,7 +23,16 @@ Route::get('/', function () {
 // Route::get('/user/profile', [UserController::class, 'profile']);
 // Route::get('/user/create', [UserController::class, 'create']);
 // Route::post('/user/store', [UserController::class, 'store']) ->name('user/store');
-Route::get('/create-user', [UserController::class, 'create']);
+Route::get('/user/create', [UserController::class, 'create'])->name('user.create');
 Route::post('/user/store', [UserController::class, 'store'])->name('user.store');
 Route::get('/profile', [ProfileController::class, 'profile']);
 Route::get('/user', [UserController::class, 'index']);
+
+Route::get('/', [UserController::class, 'index'])->name('user.list');
+
+Route::put('/user/{id}', [UserController::class, 'update'])->name('user.update');
+Route::get('/user/{id}/edit', [UserController::class, 'edit'])->name('user.edit');
+
+Route::delete('/user/{id}', [UserController::class, 'destroy'])->name('user.destroy');
+
+Route::get('/show/{id}', [UserController::class, 'show'])->name('user.show');
