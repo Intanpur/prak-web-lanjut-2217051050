@@ -1,3 +1,6 @@
+@extends('layouts.app')
+
+@section('content')
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,26 +27,26 @@
         <div class="row justify-content-center">
             <div class="col-md-6 text-center">
                 <!-- Gambar Profil -->
-                <img src="{{ asset('pp1.jpg') }}" class="rounded-circle mb-3" alt="Profile Picture">
+                <img src="{{ Storage::url($user->foto) }}" class="rounded-circle mb-3" alt="Profile Picture">
 
                 <!-- Card Nama dengan border biru -->
                 <div class="card card-nama mb-2">
                     <div class="card-body">
-                        <h5 class="card-title">Nama: {{ $nama }}</h5>
+                        <h5 class="card-title">Nama: {{ $user->nama }}</h5>
                     </div>
                 </div>
 
                 <!-- Card Kelas dengan border hijau -->
                 <div class="card card-kelas mb-2">
                     <div class="card-body">
-                        <h5 class="card-title">Kelas: {{ $kelas }}</h5>
+                        <h5 class="card-title">Kelas: {{ $user->nama_kelas ?? 'Kelas tidak ditemukan' }}</h5>
                     </div>
                 </div>
 
                 <!-- Card NPM dengan border kuning -->
                 <div class="card card-npm mb-2">
                     <div class="card-body">
-                        <h5 class="card-title">NPM: {{ $npm }}</h5>
+                        <h5 class="card-title">NPM: {{ $user->npm }}</h5>
                     </div>
                 </div>
             </div>
@@ -55,3 +58,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 </body>
 </html>
+
+{{-- // jangan lupa kasih perintah php artisan storage:link --}}
+@endsection

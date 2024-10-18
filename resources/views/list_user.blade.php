@@ -2,6 +2,9 @@
 @section ('content')
 
 <div class="container mt-5">
+<a href="{{ route('user.create') }}" class="btn
+btn-primary mb-3">Tambah Pengguna Baru</a>
+
     <h2 class="text-center mb-4 text-white">Daftar Mahasiswa</h2>
     <table class="table table-striped table-bordered table-hover bg-light">
         <thead class="bg-primary text-white">
@@ -22,7 +25,8 @@
                     <td><?= $user['nama'] ?></td>
                     <td><?= $user['npm'] ?></td>
                     <td><?= $user['nama_kelas'] ?></td>
-                    <td>
+                    <td><img src="{{ Storage::url($user->foto) }}" alt="Foto User" width="100"></td>
+                    <td><a href="{{ route('user.show', $user->id) }}" class="btn btn-warning mb-3"> detail</a>
                         <a href="#" class="btn btn-success btn-sm">Edit</a>
                         <a href="#" class="btn btn-danger btn-sm">Hapus</a>
                     </td>
